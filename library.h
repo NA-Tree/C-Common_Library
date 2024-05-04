@@ -11,17 +11,28 @@
 #define rt3     sqrt(3)
 
 
-//returns a -1 if there is an error and a 0 if it completed successfully
-int sort_int_array(int* intArray, int sizeOfArray)
+
+int sort_int_array(int intArray[], int sizeOfArray)
 {
-    bubble_sort_int(intArray, sizeOfArray);
+    quick_sort_int(intArray, 0, sizeOfArray - 1);
+    //bubble_sort_int(intArray, sizeOfArray);
     return 0;
 }
 
-int bubble_sort_int(int* intArray, int sizeOfArray)
+
+void swap_mem(int* Element1, int* Element2)
+{
+    int swapRegister;
+
+    swapRegister = *Element1;
+    *Element1 = *Element2;
+    *Element2 = swapRegister;
+}
+
+
+int bubble_sort_int(int intArray[], int sizeOfArray)
 {
     int i, j;
-    int swapRegister;
 
     for(i = 0; i < sizeOfArray - 1; i++)
     {
@@ -29,9 +40,7 @@ int bubble_sort_int(int* intArray, int sizeOfArray)
         {
             if(intArray[j] > intArray[j + 1])
             {
-                swapRegister = intArray[j];
-                intArray[j] = intArray[j + 1];
-                intArray[j + 1] = swapRegister;
+                swap_mem(&intArray[j], &intArray[j + 1]);
             }
         }
     }
@@ -40,6 +49,51 @@ int bubble_sort_int(int* intArray, int sizeOfArray)
 }
 
 
+int quick_sort_int(int arr[], int low, int high) 
+{ 
+
+    int pivot = arr[low]; 
+    int i = low; 
+    int j = high; 
+  
+    while (i < j)
+    { 
+  
+        // condition 1: find the first element greater than 
+        // the pivot (from starting) 
+        while (arr[i] <= pivot && i <= high - 1)
+        { 
+            i++; 
+        } 
+  
+        // condition 2: find the first element smaller than 
+        // the pivot (from last) 
+        while (arr[j] > pivot && j >= low + 1)
+        { 
+            j--; 
+        } 
+
+        if (i < j)
+        { 
+            swap_mem(&arr[i], &arr[j]); 
+        } 
+    } 
+    swap_mem(&arr[low], &arr[j]); 
+
+    if (low < high)
+    { 
+
+        int partitionIndex = j;
+  
+        // Recursively call quick_sort_int() for left and right 
+        // half based on partition Index 
+        quick_sort_int(arr, low, partitionIndex - 1); 
+        quick_sort_int(arr, partitionIndex + 1, high); 
+    } 
+
+
+    return 0;
+} 
 
 
 
