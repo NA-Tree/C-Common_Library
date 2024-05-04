@@ -8,17 +8,13 @@ int main(int argc, char* argv[])
     long sizeOfArray = 10;
     int myArr1[] = {100, 90, 80, 50, 60, 20, 30, 40, 70, 10};
 
-    bubble_sort_int(myArr1, sizeOfArray);
+    sort_int_array(myArr1, sizeOfArray);
 
     
     for(i = 0; i < sizeOfArray; i++)
     {
         printf("%d\n", myArr1[i]);
     }
-
-    int myArr[] = {100, 90, 80, 50, 60, 20, 30, 40, 70, 10};
-
-    
 
 
 

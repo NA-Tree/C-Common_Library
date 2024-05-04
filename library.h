@@ -49,9 +49,8 @@ int bubble_sort_int(int intArray[], int sizeOfArray)
 }
 
 
-int quick_sort_int(int arr[], int low, int high) 
-{ 
-
+int partition(int arr[], int low, int high) 
+{
     int pivot = arr[low]; 
     int i = low; 
     int j = high; 
@@ -78,12 +77,17 @@ int quick_sort_int(int arr[], int low, int high)
             swap_mem(&arr[i], &arr[j]); 
         } 
     } 
-    swap_mem(&arr[low], &arr[j]); 
+    swap_mem(&arr[low], &arr[j]);
 
+    return j;
+}
+
+int quick_sort_int(int arr[], int low, int high) 
+{ 
     if (low < high)
     { 
 
-        int partitionIndex = j;
+        int partitionIndex = partition(arr, low, high);
   
         // Recursively call quick_sort_int() for left and right 
         // half based on partition Index 
