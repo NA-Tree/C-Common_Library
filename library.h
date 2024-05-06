@@ -19,7 +19,6 @@ int sort_int_array(int intArray[], int sizeOfArray)
     return 0;
 }
 
-
 void swap_mem(int* Element1, int* Element2)
 {
     int swapRegister;
@@ -28,7 +27,6 @@ void swap_mem(int* Element1, int* Element2)
     *Element1 = *Element2;
     *Element2 = swapRegister;
 }
-
 
 int bubble_sort_int(int intArray[], int sizeOfArray)
 {
@@ -47,7 +45,6 @@ int bubble_sort_int(int intArray[], int sizeOfArray)
 
     return 0;
 }
-
 
 int partition(int arr[], int low, int high) 
 {
@@ -99,6 +96,36 @@ int quick_sort_int(int arr[], int low, int high)
     return 0;
 } 
 
+int find_greatest_common_divisor(int element1, int element2)
+{
+    int a;
+    int b;
+    int remainder;
 
+    //making the 'a' variable the larger value
+    if(element1 > element2)
+    {
+        a = element1;
+        b = element2;
+    }
+    else
+    {
+        a = element2;
+        b = element1;
+    }
+
+    remainder = a - b;
+
+    if(a % remainder || b % remainder)
+    {
+        return find_greatest_common_divisor(b, remainder);
+    }
+    else
+    {
+        return remainder;
+    }
+
+
+}
 
 

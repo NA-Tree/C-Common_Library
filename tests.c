@@ -3,18 +3,13 @@
 
 int main(int argc, char* argv[])
 {
-    int i, j;
-    
-    long sizeOfArray = 10;
-    int myArr1[] = {100, 90, 80, 50, 60, 20, 30, 40, 70, 10};
 
-    sort_int_array(myArr1, sizeOfArray);
 
-    
-    for(i = 0; i < sizeOfArray; i++)
-    {
-        printf("%d\n", myArr1[i]);
-    }
+int a = 56;
+int b = 24;
+//the greatest common divisor for these two numbers is 8
+int gcd = find_greatest_common_divisor(a, b);
+printf("%d", gcd);
 
 
 
