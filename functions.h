@@ -121,15 +121,15 @@ int gcd(int element1, int element2)
     }
 
     //using euclids gcd method
-    remainder = a - b;
+    remainder = a % b;
 
-    if(a % remainder || b % remainder)
+    if(remainder)
     {
-        return gcd(b, remainder);
+        return gcd(b, a - b);
     }
     else
     {
-        return remainder;
+        return b;
     }
 
 

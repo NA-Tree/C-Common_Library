@@ -1,15 +1,15 @@
 #include <stdio.h>
-#include "library.h"
+#include "functions.h"
 
 int main(int argc, char* argv[])
 {
 
 
-int a = 56;
-int b = 24;
-//the greatest common divisor for these two numbers is 8
-int gcd = find_greatest_common_divisor(a, b);
-printf("%d", gcd);
+    int a = 32;
+    int b = 128;
+    //the greatest common divisor for these two numbers is 8
+    int result = gcd(a, b);
+    printf("%d", result);
 
 
 
