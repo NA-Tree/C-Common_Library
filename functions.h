@@ -14,10 +14,11 @@
 
 int sortArray_int(int intArray[], int sizeOfArray)
 {
-    quickSort_int(intArray, 0, sizeOfArray - 1);
-    //bubbleSort_int(intArray, sizeOfArray);
-    
-    return 0;
+    //return quickSort_int(intArray, 0, sizeOfArray - 1);
+    //return bubbleSort_int(intArray, sizeOfArray);
+    return selectionSort_int(intArray, sizeOfArray);
+
+    //return stolenSelect_int(intArray, sizeOfArray);
 }
 
 void swapMem(int* Element1, int* Element2)
@@ -54,6 +55,12 @@ int bubbleSort_int(int intArray[], int sizeOfArray)
 
 int quickSortPartition_int(int arr[], int low, int high) 
 {
+    if(low < 0)
+    {
+        printf("boundary error in quicksort");
+        return -1;
+    }
+
     int pivot = arr[low]; 
     int i = low; 
     int j = high; 
@@ -101,6 +108,33 @@ int quickSort_int(int arr[], int low, int high)
 
     return 0;
 } 
+
+int selectionSort_int(int arr[], int sizeOfArray)
+{
+    int i, j, minLocation, swap;
+
+    for(i = 0; i < sizeOfArray - 1; i++)
+    {
+        minLocation = i;
+        
+        for(j = i + 1; j < sizeOfArray; j++)
+        {
+            if(arr[j] < arr[minLocation])
+            {
+                minLocation = j;
+            }
+
+            if(minLocation != i)
+            {
+                swap = arr[i];
+                arr[i] = arr[minLocation];
+                arr[minLocation] = swap;
+            }            
+        }
+    }
+
+    return 0;
+}
 
 int gcd(int element1, int element2)
 {

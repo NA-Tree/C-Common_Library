@@ -4,14 +4,15 @@
 int main(int argc, char* argv[])
 {
 
+    int intArr[16] = {34,2,6234,6,6,2,4562,45,6,6,21,1,6,7,78,8};
+    int arrSize = 16;
 
-    int a = 32;
-    int b = 128;
-    //the greatest common divisor for these two numbers is 8
-    int result = gcd(a, b);
-    printf("%d", result);
+    sortArray_int(intArr, arrSize);
 
-
+    for(int i = 0; i < arrSize; i++)
+    {
+        printf("%d\n", intArr[i]);
+    }
 
 
 
